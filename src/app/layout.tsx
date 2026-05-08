@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "sybi | Solana Builder",
-  description: "Solana developer & builder. Ships bots, tools, and infra for the ecosystem.",
+  title: "sybi",
+  description: "sybi",
 };
 
 export default function RootLayout({
