@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 
-const ROLES = ["Developer", "Builder", "Digital Liberator", "Reality Architect"];
+const ROLES = ["Digital Liberator", "Reality Architect"];
 
 export default function Home() {
   const [roleIndex, setRoleIndex] = useState(0);
