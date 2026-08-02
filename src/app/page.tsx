@@ -3,8 +3,17 @@
 import { useEffect, useRef, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { FaXTwitter, FaGithub, FaDiscord } from "react-icons/fa6";
+import { FaTelegramPlane } from "react-icons/fa";
 
 const ROLES = ["Digital Liberator", "Reality Architect"];
+
+const SOCIALS = [
+  { name: "X", href: "https://x.com/sybimeta", Icon: FaXTwitter },
+  { name: "GitHub", href: "https://github.com/switch-afk", Icon: FaGithub },
+  { name: "Discord", href: "https://discord.gg/Jd5JPkSN59", Icon: FaDiscord },
+  { name: "Telegram", href: "https://t.me/sybi_meta", Icon: FaTelegramPlane },
+];
 
 export default function Home() {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -170,7 +179,7 @@ export default function Home() {
           <div className="absolute inset-0 rounded-full"
             style={{ boxShadow: "0 0 60px rgba(234,179,8,0.4), 0 0 120px rgba(234,179,8,0.15)", borderRadius: "50%" }} />
           <Avatar className="h-28 w-28 ring-2 ring-yellow-400/70 relative z-10">
-            <AvatarImage src="https://unavatar.io/twitter/sybimeta" alt="Sybi" />
+            <AvatarImage src="/profile.png" alt="Sybi" />
             <AvatarFallback className="bg-yellow-400/10 text-yellow-400 text-2xl font-bold">SY</AvatarFallback>
           </Avatar>
           <div className="absolute inset-[-10px] rounded-full border border-yellow-400/25 pointer-events-none"
@@ -205,16 +214,19 @@ export default function Home() {
             style={{ opacity: cursorVisible ? 1 : 0, transition: "opacity 0.1s" }} />
         </div>
 
-        <div style={{ animation: "fadeUp 1s ease both 0.4s" }}>
-          <Button
-            asChild
-            className="bg-yellow-400 text-black font-bold hover:bg-yellow-300 transition-all duration-200 px-8 py-2 text-sm tracking-widest uppercase border-0"
-            style={{ boxShadow: "0 0 30px rgba(234,179,8,0.4), 0 0 60px rgba(234,179,8,0.15)" }}
-          >
-            <a href="https://x.com/sybimeta" target="_blank" rel="noopener noreferrer">
-              𝕏
-            </a>
-          </Button>
+        <div className="flex items-center gap-4" style={{ animation: "fadeUp 1s ease both 0.4s" }}>
+          {SOCIALS.map(({ name, href, Icon }) => (
+            <Button
+              key={name}
+              asChild
+              className="bg-yellow-400 hover:bg-[#2a2a2a] transition-all duration-200 w-12 h-12 p-0 border-0"
+              style={{ boxShadow: "0 0 30px rgba(234,179,8,0.4), 0 0 60px rgba(234,179,8,0.15)" }}
+            >
+              <a href={href} target="_blank" rel="noopener noreferrer" aria-label={name}>
+                <Icon className="!size-5 text-black transition-colors duration-200 group-hover/button:text-yellow-400" />
+              </a>
+            </Button>
+          ))}
         </div>
 
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
